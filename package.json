@@ -1,0 +1,23 @@
+{
+  "name": "cloverx-doc",
+  "version": "1.0.0",
+  "description": "🍀convert cloverx api definition into swagger specific format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clover-x/cloverx-doc.git"
+  },
+  "keywords": [
+    "cloverx",
+    "doc"
+  ],
+  "author": "plusmancn@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clover-x/cloverx-doc/issues"
+  },
+  "homepage": "https://github.com/clover-x/cloverx-doc#readme"
+}
