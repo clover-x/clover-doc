@@ -26,6 +26,20 @@ module.exports = {
             }
         }
     },
+    ModuleExists: {
+        type: 'object',
+        description: '模块是否存在',
+        properties: {
+            name: {
+                type: 'string',
+                description: '模块名'
+            },
+            exists: {
+                type: 'boolean',
+                description: '是否存在'
+            }
+        }
+    },
     StdResponse: {
         type: 'object',
         description: '搜车标准返回-模块包含',

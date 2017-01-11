@@ -4,26 +4,47 @@
  *
  * Copyright (c) 2017 Souche.com, all rights
  * reserved.
- *
- * 语法解析器
  */
 
+const fs = require('fs');
 const should = require('should');
+const cloverxDoc = require('../');
 const parseSchema = require('../lib/parse_schema.js');
 
 describe('#parseSchema', function () {
     it('parse [@Module]', function () {
         let result = parseSchema('[@Module]');
         let expected = {
-            description: 'Data object',
             type: 'array',
             items: { '$ref': '#/definitions/Module' }
         };
         should.deepEqual(result, expected);
     });
 
-    it('parse {name:@string, module:@boolean}', function () {
-        let result = parseSchema('{name:@string, module:@boolean}');
-        console.log(JSON.stringify(result, null, '  '));
+    it('parse @Module', function () {
+        let result = parseSchema('@Module');
+        let expected = {
+            '$ref': '#/definitions/Module'
+        };
+        should.deepEqual(result, expected);
+    });
+});
+
+describe('#convert', function () {
+    it('translate test/fixtures', function () {
+        let result = cloverxDoc.convert({
+            baseDir: __dirname + '/fixtures',
+            config: {
+                basePath: '/',
+                info: {
+                    version: '1.0.1',
+                    title: 'clover doc test',
+                    description: 'from test'
+                }
+            }
+        });
+
+        fs.writeFileSync(__dirname + '/fixtures/swagger-doc.json', JSON.stringify(result, null, '  '));
+        result.should.be.an.Object();
     });
 });

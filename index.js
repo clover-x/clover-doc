@@ -21,13 +21,13 @@ const defaultConfig = require('./lib/default.config.js');
  */
 function convert(opts = {}) {
     let swaggerDoc  = _.defaultsDeep({}, opts.config, defaultConfig);
+
+    // 加载默认配置
     parseSwagger(opts.baseDir, swaggerDoc);
+    // 加载路由注释
     parseRouter(opts.baseDir, swaggerDoc);
-    // console.log(JSON.stringify(swaggerDoc, null, '  '));
+
+    return swaggerDoc;
 }
 
 exports.convert = convert;
-
-convert({
-    baseDir: __dirname + '/test/fixtures/'
-});

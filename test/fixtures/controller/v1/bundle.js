@@ -1,46 +1,38 @@
 'use strict';
-
 /**
-name: 'name',
-in: 'path',
-description: '需要检查的包名, 允许字符 [a-z-]',
-type: 'string',
-{
-  "description": "",
-  "tags": [
-    {
-      "title": "desc",
-      "description": "判断包名是否存在"
-    },
-    {
-      "title": "path",
-      "description": "/:name/exists"
-    },
-    {
-      "title": "param",
-      "description": "需要检查的包名, 允许字符 [a-z-]",
-      "type": {
-        "type": "NameExpression",
-        "name": "string#path"
-      },
-      "name": "name"
-    },
-    {
-      "title": "response",
-      "description": "[@Module]"
-    }
-  ]
-}
-*/
+ * <plusmancn@gmail.com> created at 2017.01.11 17:13:54
+ *
+ * Copyright (c) 2017 Souche.com, all rights
+ * reserved.
+ *
+ * 包信息创建
+ */
 
-/**
+/**jsdoc
  * 判断包名是否存在
  * @httpMethod get
- * @path /:name/:platform/exists
+ * @path /:name/exists
  * @param {string#path} name - 需要检查的包名, 允许字符 [a-z-]
- * @param {string#path} platform - 平台选择
- * @response [@Module]
+ * @response @ModuleExists
  */
-function test () {
+function bundleExists () {
 
 }
+
+exports.bundleExists = bundleExists;
+
+/**jsdoc
+ * rn 包信息上传
+ * @httpMethod post
+ * @path /:name/:platform
+ * @param {string#path} name - 包名称
+ * @param {string#path} platform - 平台选择：ios, android
+ * @param {string#formData} repository - jsbundle 地址
+ * @param {string#formData} version - 版本号，测试环境使用，1.3.4-beta.0 格式
+ * @response @Module
+ */
+function create () {
+
+}
+
+exports.create = create;
