@@ -1,15 +1,15 @@
 {
-  "basePath": "/",
-  "info": {
-    "version": "1.0.1",
-    "title": "clover doc test",
-    "description": "from test"
-  },
   "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "cloverx doc",
+    "description": "🍀convert cloverx api definition into swagger specific format"
+  },
   "schemes": [
     "http"
   ],
   "host": "127.0.0.1:7078",
+  "basePath": "/",
   "paths": {
     "/v1/bundle/{name}/exists": {
       "get": {

@@ -33,15 +33,7 @@ describe('#parseSchema', function () {
 describe('#convert', function () {
     it('translate test/fixtures', function () {
         let result = cloverxDoc.convert({
-            baseDir: __dirname + '/fixtures',
-            config: {
-                basePath: '/',
-                info: {
-                    version: '1.0.1',
-                    title: 'clover doc test',
-                    description: 'from test'
-                }
-            }
+            baseDir: __dirname + '/fixtures'
         });
 
         fs.writeFileSync(__dirname + '/fixtures/swagger-doc.json', JSON.stringify(result, null, '  '));
