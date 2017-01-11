@@ -78,8 +78,8 @@ The path part of url, `Fianl Path = basePath + directory path + path`
 
 ### param
 `@param {data type#location} params name - comment`  
-Avaliable location see [here](http://swagger.io/specification/#parameterIn).  
-Avaliable data type see [here](http://swagger.io/specification/#parameterObject)
+Avaliable location see [here](http://swagger.io/specification/#fixed-fields-45).  
+Avaliable data type see [here](http://swagger.io/specification/#data-types-12)
 
 ### response
 The Modules define in `schema/swagger/definitions.js`.  
