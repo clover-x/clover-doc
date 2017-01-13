@@ -22,6 +22,7 @@ then comment your api following jsdoc style
 ```javascript
 /**jsdoc
  * The description of your api
+ * @tags client, cli
  * @httpMethod post
  * @path /bundle/:platform
  * @param {string#path} platform - description
@@ -69,6 +70,11 @@ The wraper must start with `/**jsdoc`
  */
 ```
 ## Tag Defination
+### tags
+which collection that api was belonged to.  
+the tags was defined in `schema/swagger/tags.yaml`.  
+Example: `@tags client, cli`
+
 ### httpMethod
 The action of http request which in lowercae.  
 Example: `@httpMethod post`

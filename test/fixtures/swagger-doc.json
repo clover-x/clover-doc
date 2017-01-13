@@ -1,10 +1,5 @@
 {
   "swagger": "2.0",
-  "info": {
-    "version": "1.0.0",
-    "title": "cloverx doc",
-    "description": "🍀convert cloverx api definition into swagger specific format"
-  },
   "schemes": [
     "http"
   ],
@@ -14,6 +9,7 @@
     "/v1/bundle/{name}/exists": {
       "get": {
         "description": "判断包名是否存在",
+        "tags": [],
         "parameters": [
           {
             "name": "name",
@@ -36,6 +32,10 @@
     "/v1/bundle/{name}/{platform}": {
       "post": {
         "description": "rn 包信息上传",
+        "tags": [
+          "client",
+          "cli"
+        ],
         "parameters": [
           {
             "name": "name",
@@ -79,6 +79,7 @@
     "/v1/deep/client/bundle/{platform}": {
       "post": {
         "description": "根据依赖创建 jsbundle",
+        "tags": [],
         "parameters": [
           {
             "name": "platform",
@@ -208,5 +209,24 @@
         }
       }
     }
-  }
+  },
+  "info": {
+    "version": "1.0.0,",
+    "title": "cloverx doc,",
+    "description": "🍀convert cloverx api definition into swagger specific format\n```javascript\nnpm install cloverx-doc\n```\n"
+  },
+  "tags": [
+    {
+      "name": "client",
+      "description": "客户端调用"
+    },
+    {
+      "name": "cli",
+      "description": "Relationships are expressed using the following terms:\n\n**outgoing_status**: Your relationship to the user. Can be \"follows\",\n\"requested\", \"none\".\n**incoming_status**: A user's relationship to you. Can be \"followed_by\",\n\"requested_by\", \"blocked_by_you\", \"none\".\n"
+    },
+    {
+      "name": "Media",
+      "description": "At this time, uploading via the API is not possible. We made a conscious\nchoice not to add this for the following reasons:\n\n* Instagram is about your life on the go – we hope to encourage photos\nfrom within the app.\n* We want to fight spam & low quality photos. Once we allow uploading\nfrom other sources, it's harder to control what comes into the Instagram\necosystem. All this being said, we're working on ways to ensure users\nhave a consistent and high-quality experience on our platform.\n"
+    }
+  ]
 }

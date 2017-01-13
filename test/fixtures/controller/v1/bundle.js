@@ -23,6 +23,7 @@ exports.bundleExists = bundleExists;
 
 /**jsdoc
  * rn 包信息上传
+ * @tags client, cli
  * @httpMethod post
  * @path /:name/:platform
  * @param {string#path} name - 包名称
