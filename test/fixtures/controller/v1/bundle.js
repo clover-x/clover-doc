@@ -19,8 +19,6 @@ function bundleExists () {
 
 }
 
-exports.bundleExists = bundleExists;
-
 /**jsdoc
  * rn 包信息上传
  * @tags client, cli
@@ -36,4 +34,7 @@ function create () {
 
 }
 
-exports.create = create;
+module.exports = {
+    bundleExists,
+    create
+};

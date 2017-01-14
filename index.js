@@ -30,4 +30,6 @@ function convert(opts = {}) {
     return swaggerDoc;
 }
 
-exports.convert = convert;
+module.exports = {
+    convert
+};
