@@ -92,7 +92,22 @@ The Modules define in `schema/swagger/definitions.js`.
 ref module directly like `@ModuleName`.  
 wrap moudel in an array like `[@ModuleName]`.
 
+## Output-Checker
+Init
+```javascript
+const checker = cloverxDoc.checker({
+    definitionsPath: 'The path to definitions of swagger module'
+});
+```
+checkAndFormat
+```javascript
+// will get a new list of formated `Module` object
+// if there is a mismtach data type in sourceObj, it should throw an error
+let res = checker
+            .module('[@Module...]')
+            .checkAndFormat(sourceObj);
+```
+
 ## Reference
 * [usejsdoc](http://usejsdoc.org/)
 * use [swagger editor](http://editor.swagger.io/#/) to visualize the output of cloverx-doc
-

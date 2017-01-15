@@ -13,8 +13,8 @@
 
 const _ = require('lodash');
 const parseRouter = require('./lib/parse_router.js');
-const parseSwagger = require('./lib/parse_swagger.js');
-const defaultConfig = require('./lib/default.config.js');
+const parseConfig = require('./lib/parse_config.js');
+const defaultConfig = require('./lib/config/config.default.js');
 
 /**
  * 文档翻译
@@ -23,7 +23,7 @@ function convert(opts = {}) {
     let swaggerDoc  = _.defaultsDeep({}, opts.config, defaultConfig);
 
     // 加载默认配置
-    parseSwagger(opts.baseDir, swaggerDoc);
+    parseConfig(opts.baseDir, swaggerDoc);
     // 加载路由注释
     parseRouter(opts.baseDir, swaggerDoc);
 
@@ -31,5 +31,6 @@ function convert(opts = {}) {
 }
 
 module.exports = {
-    convert
+    convert,
+    checker: require('./lib/data_format_checker.js')
 };
