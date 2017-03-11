@@ -95,7 +95,7 @@ Grammar         | Description
 :---------------|:------------------------------------------------------------------------------------------------
 `@ModuleName`   | ref a module directly
 `[@ModuleName]` | wrap module in an array. When check the response, the array.length can be one or more, but the elements which are in the array must have the same type.
-`{:@ModuleName}` | the module can contain have one or more element which is restricted to same type.
+`{:@ModuleName...}` | the module can contain have one or more element which is restricted to same type.
 `{keyA:@ModuleName, keyB:@ModuleName}` | Similar to `{:@ModuleName}`, append the restriction of key-name.
 
 
