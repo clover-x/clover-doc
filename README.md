@@ -90,14 +90,21 @@ Avaliable data type see [here](http://swagger.io/specification/#data-types-12)
 ### response
 The Modules are defined in `schema/swagger/definitions.js`.  
 
+**Basic**
 
-Grammar         | Description
-:---------------|:------------------------------------------------------------------------------------------------
-`@ModuleName`   | ref a module directly
-`[@ModuleName]` | wrap module in an array. When check the response, the array.length can be one or more, but the elements which are in the array must have the same type.
-`{:@ModuleName...}` | the module can contain have one or more element which is restricted to same type.
+Grammar                                | Description
+:--------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------
+`@ModuleName`                          | ref a module directly
+`[@ModuleName]`                        | wrap module in an array. When check the response, the array.length can be one or more, but the elements which are in the array must have the same type.
+`{:@ModuleName}`                       | the module can contain have one or more element which is restricted to same type.
 `{keyA:@ModuleName, keyB:@ModuleName}` | Similar to `{:@ModuleName}`, append the restriction of key-name.
 
+**Mix**
+
+Grammar  |  Description
+:-|:-
+`{:[@ModuleName]}`  |  \
+`{keyA:[@ModuleName], keyB:[@ModuleName]}`  |  \
 
 ## Output-Checker
 Have the same grammar with response

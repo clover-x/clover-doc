@@ -127,7 +127,7 @@ describe('#checker', function () {
 
         it('重复对象', function () {
             let result = checker
-                .module('{:@Module...}')
+                .module('{:@Module}')
                 .checkAndFormat({
                     'e': {
                         name: 'weizhangTU',
@@ -160,7 +160,7 @@ describe('#checker', function () {
         it('重复对象，其中一项不符合要求', function () {
             (function () {
                 checker
-                    .module('{:@Module...}')
+                    .module('{:@Module}')
                     .checkAndFormat({
                         'e': {
                             name: 'weizhangTU',
@@ -225,6 +225,81 @@ describe('#checker', function () {
                         'c': {}
                     });
             }).should.throw(/对象缺少 bField 字段/);
+        });
+    });
+
+    describe('#checker#objArrMix', function () {
+        it('对象内包含数组重复模式', function () {
+            let result = checker
+                .module('{:[@Module]}')
+                .checkAndFormat({
+                    'ad': [
+                        {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            version: '12.1.2',
+                            noEnum: 'this field will be removed'
+                        }
+                    ],
+                    'db': [
+                        {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            version: '12.1.2',
+                            noEnum: 'this field will be removed'
+                        }
+                    ]
+                });
+
+            should.deepEqual(result, {
+                'ad': [
+                    {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '12.1.2',
+                    }
+                ],
+                'db': [
+                    {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '12.1.2',
+                    }
+                ]
+            });
+        });
+
+        it('对象内包含数组指定字段', function () {
+            let result = checker
+                .module('{ad:[@Module]}')
+                .checkAndFormat({
+                    'ad': [
+                        {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            version: '12.1.2',
+                            noEnum: 'this field will be removed'
+                        }
+                    ],
+                    'db': [
+                        {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            version: '12.1.2',
+                            noEnum: 'this field will be removed'
+                        }
+                    ]
+                });
+
+            should.deepEqual(result, {
+                'ad': [
+                    {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '12.1.2',
+                    }
+                ]
+            });
         });
     });
 });

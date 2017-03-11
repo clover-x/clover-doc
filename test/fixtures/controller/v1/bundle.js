@@ -31,9 +31,23 @@ function property() {}
  * 列表接口，重复模式
  * @httpMethod get
  * @path /property/randomKey
- * @response { :@ModuleExists... }
+ * @response { :@ModuleExists}
  */
 function propertyRandom() {}
+
+/**jsdoc
+ * 对象属性,array 混合, 键值模式
+ * @httpMethod get
+ * @path /property/withArray
+ * @response { isExists:[@ModuleExists], module:@Module}
+ */
+
+/**jsdoc
+ * 对象属性,array 混合, 重复模式
+ * @httpMethod get
+ * @path /property/randomKey/withArray
+ * @response { :[@ModuleExists] }
+ */
 
 /**jsdoc
  * rn 包信息上传
