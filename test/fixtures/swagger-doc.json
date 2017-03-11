@@ -29,6 +29,36 @@
         }
       }
     },
+    "/v1/bundle/property": {
+      "get": {
+        "description": "对象属性",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/StdResponse-{ isExists:@ModuleExists, module:@Module}"
+            }
+          }
+        }
+      }
+    },
+    "/v1/bundle/property/randomKey": {
+      "get": {
+        "description": "列表接口，重复模式",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success",
+            "schema": {
+              "$ref": "#/definitions/StdResponse-{ :@ModuleExists }"
+            }
+          }
+        }
+      }
+    },
     "/v1/bundle/{name}/{platform}": {
       "post": {
         "description": "rn 包信息上传",
@@ -159,6 +189,63 @@
         },
         "data": {
           "$ref": "#/definitions/ModuleExists"
+        }
+      }
+    },
+    "StdResponse-{ isExists:@ModuleExists, module:@Module}": {
+      "type": "object",
+      "description": "搜车标准返回-模块包含",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "请求是否成功"
+        },
+        "code": {
+          "type": "number",
+          "description": "请求状态码，10000 为无错误",
+          "default": 10000
+        },
+        "msg": {
+          "type": "string",
+          "description": "错误描述"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "isExists": {
+              "$ref": "#/definitions/ModuleExists"
+            },
+            "module": {
+              "$ref": "#/definitions/Module"
+            }
+          }
+        }
+      }
+    },
+    "StdResponse-{ :@ModuleExists }": {
+      "type": "object",
+      "description": "搜车标准返回-模块包含",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "description": "请求是否成功"
+        },
+        "code": {
+          "type": "number",
+          "description": "请求状态码，10000 为无错误",
+          "default": 10000
+        },
+        "msg": {
+          "type": "string",
+          "description": "错误描述"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "_manyRandomKey": {
+              "$ref": "#/definitions/ModuleExists"
+            }
+          }
         }
       }
     },

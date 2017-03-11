@@ -88,11 +88,20 @@ Avaliable location see [here](http://swagger.io/specification/#fixed-fields-45).
 Avaliable data type see [here](http://swagger.io/specification/#data-types-12)
 
 ### response
-The Modules define in `schema/swagger/definitions.js`.  
-ref module directly like `@ModuleName`.  
-wrap moudel in an array like `[@ModuleName]`.
+The Modules are defined in `schema/swagger/definitions.js`.  
+
+
+Grammar         | Description
+:---------------|:------------------------------------------------------------------------------------------------
+`@ModuleName`   | ref a module directly
+`[@ModuleName]` | wrap module in an array. When check the response, the array.length can be one or more, but the elements which are in the array must have the same type.
+`{:@ModuleName}` | the module can contain have one or more element which is restricted to same type.
+`{keyA:@ModuleName, keyB:@ModuleName}` | Similar to `{:@ModuleName}`, append the restriction of key-name.
+
 
 ## Output-Checker
+Have the same grammar with response
+
 Init
 ```javascript
 const checker = cloverxDoc.checker({

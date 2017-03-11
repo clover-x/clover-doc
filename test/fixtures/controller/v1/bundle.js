@@ -20,6 +20,22 @@ function bundleExists () {
 }
 
 /**jsdoc
+ * 对象属性
+ * @httpMethod get
+ * @path /property
+ * @response { isExists:@ModuleExists, module:@Module}
+ */
+function property() {}
+
+/**jsdoc
+ * 列表接口，重复模式
+ * @httpMethod get
+ * @path /property/randomKey
+ * @response { :@ModuleExists }
+ */
+function propertyRandom() {}
+
+/**jsdoc
  * rn 包信息上传
  * @tags client, cli
  * @httpMethod post
@@ -36,5 +52,7 @@ function create () {
 
 module.exports = {
     bundleExists,
-    create
+    create,
+    property,
+    propertyRandom
 };

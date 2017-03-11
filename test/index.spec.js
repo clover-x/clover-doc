@@ -124,5 +124,107 @@ describe('#checker', function () {
                     });
             }).should.throw(/miss version in format Module/);
         });
+
+        it('重复对象', function () {
+            let result = checker
+                .module('{:@Module...}')
+                .checkAndFormat({
+                    'e': {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '1.2.4',
+                        noEnum: 'this field will be removed'
+                    },
+                    'f': {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '1.2.4',
+                        noEnum: 'this field will be removed'
+                    }
+                });
+
+            should.deepEqual(result, {
+                'e': {
+                    name: 'weizhangTU',
+                    repository: 'http://www.souche.com',
+                    version: '1.2.4',
+                },
+                'f': {
+                    name: 'weizhangTU',
+                    repository: 'http://www.souche.com',
+                    version: '1.2.4',
+                }
+            });
+        });
+
+        it('重复对象，其中一项不符合要求', function () {
+            (function () {
+                checker
+                    .module('{:@Module...}')
+                    .checkAndFormat({
+                        'e': {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            version: '1.2.4',
+                            noEnum: 'this field will be removed'
+                        },
+                        'f': {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            noEnum: 'this field will be removed'
+                        }
+                    });
+            }).should.throw(/miss version in format Module/);
+
+        });
+
+        it('非重复对象', function () {
+            let result = checker
+                .module('{aField:@Module, bField:@Module}')
+                .checkAndFormat({
+                    'aField': {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '12.1.2',
+                        noEnum: 'this field will be removed'
+                    },
+                    'bField': {
+                        name: 'weizhangTU',
+                        repository: 'http://www.souche.com',
+                        version: '12.1.2',
+                        noEnum: 'this field will be removed'
+                    },
+                    'c': {}
+                });
+
+            should.deepEqual(result, {
+                'aField': {
+                    name: 'weizhangTU',
+                    repository: 'http://www.souche.com',
+                    version: '12.1.2',
+                },
+                'bField': {
+                    name: 'weizhangTU',
+                    repository: 'http://www.souche.com',
+                    version: '12.1.2',
+                },
+            });
+        });
+
+        it('非重复对象，对象缺失报错', function () {
+            (function () {
+                checker
+                    .module('{aField:@Module, bField:@Module}')
+                    .checkAndFormat({
+                        'aField': {
+                            name: 'weizhangTU',
+                            repository: 'http://www.souche.com',
+                            version: '12.1.2',
+                            noEnum: 'this field will be removed'
+                        },
+                        'c': {}
+                    });
+            }).should.throw(/对象缺少 bField 字段/);
+        });
     });
 });
