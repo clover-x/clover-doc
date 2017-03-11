@@ -31,7 +31,7 @@ function property() {}
  * 列表接口，重复模式
  * @httpMethod get
  * @path /property/randomKey
- * @response { :@ModuleExists }
+ * @response { :@ModuleExists... }
  */
 function propertyRandom() {}
 

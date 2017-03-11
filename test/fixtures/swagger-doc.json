@@ -53,7 +53,7 @@
           "200": {
             "description": "success",
             "schema": {
-              "$ref": "#/definitions/StdResponse-{ :@ModuleExists }"
+              "$ref": "#/definitions/StdResponse-{ :@ModuleExists... }"
             }
           }
         }
@@ -222,7 +222,7 @@
         }
       }
     },
-    "StdResponse-{ :@ModuleExists }": {
+    "StdResponse-{ :@ModuleExists... }": {
       "type": "object",
       "description": "搜车标准返回-模块包含",
       "properties": {
