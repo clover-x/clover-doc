@@ -101,10 +101,10 @@ Grammar                                | Description
 
 **Mix**
 
-Grammar  |  Description
-:-|:-
-`{:[@ModuleName]}`  |  \
-`{keyA:[@ModuleName], keyB:[@ModuleName]}`  |  \
+Grammar                                    | Description
+:------------------------------------------|:-----------
+`{:[@ModuleName]}`                         | -
+`{keyA:[@ModuleName], keyB:@ModuleName}` | -
 
 ## Output-Checker
 Have the same grammar with response
