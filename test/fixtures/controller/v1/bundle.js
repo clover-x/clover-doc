@@ -29,6 +29,7 @@ function property() {}
 
 /**jsdoc
  * 列表接口，重复模式
+ * @summary 简要概括
  * @httpMethod get
  * @path /property/randomKey
  * @response { :@ModuleExists}

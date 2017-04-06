@@ -8,6 +8,7 @@
   "paths": {
     "/v1/bundle/{name}/exists": {
       "get": {
+        "summary": "判断包名是否存在",
         "description": "判断包名是否存在",
         "tags": [],
         "parameters": [
@@ -31,6 +32,7 @@
     },
     "/v1/bundle/property": {
       "get": {
+        "summary": "对象属性",
         "description": "对象属性",
         "tags": [],
         "parameters": [],
@@ -46,6 +48,7 @@
     },
     "/v1/bundle/property/randomKey": {
       "get": {
+        "summary": "简要概括",
         "description": "列表接口，重复模式",
         "tags": [],
         "parameters": [],
@@ -61,6 +64,7 @@
     },
     "/v1/bundle/property/withArray": {
       "get": {
+        "summary": "对象属性,array 混合, 键值模式",
         "description": "对象属性,array 混合, 键值模式",
         "tags": [],
         "parameters": [],
@@ -76,6 +80,7 @@
     },
     "/v1/bundle/property/randomKey/withArray": {
       "get": {
+        "summary": "对象属性,array 混合, 重复模式",
         "description": "对象属性,array 混合, 重复模式",
         "tags": [],
         "parameters": [],
@@ -91,6 +96,7 @@
     },
     "/v1/bundle/{name}/{platform}": {
       "post": {
+        "summary": "rn 包信息上传",
         "description": "rn 包信息上传",
         "tags": [
           "client",
@@ -138,6 +144,7 @@
     },
     "/v1/deep/client/bundle/{platform}": {
       "post": {
+        "summary": "根据依赖创建 jsbundle",
         "description": "根据依赖创建 jsbundle",
         "tags": [],
         "parameters": [
