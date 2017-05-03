@@ -1,6 +1,6 @@
 {
   "name": "cloverx-doc",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "🍀convert cloverx api definition into swagger specific format",
   "main": "index.js",
   "scripts": {
